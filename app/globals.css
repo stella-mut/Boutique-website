@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-paper text-ink font-lato antialiased;
+  }
+  ::selection {
+    @apply bg-rose-200 text-ink;
+  }
+}
+
+@layer utilities {
+  .eyebrow {
+    @apply text-xs font-bold uppercase tracking-widest2 text-rose-600;
+  }
+  .container-boutique {
+    @apply mx-auto w-full max-w-8xl px-6 md:px-10 lg:px-14;
+  }
+  /* Signature: tailoring "measuring tape" tick rule — used at section
+     transitions as a nod to the brand's craftsmanship & tailoring roots */
+  .tape-rule {
+    background-image: repeating-linear-gradient(
+      to right,
+      #B76E79 0px,
+      #B76E79 1px,
+      transparent 1px,
+      transparent 8px
+    );
+    height: 1px;
+  }
+  .focus-ring {
+    @apply outline-none focus-visible:ring-2 focus-visible:ring-rose-500 focus-visible:ring-offset-2 focus-visible:ring-offset-paper;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

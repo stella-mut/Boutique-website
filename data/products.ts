@@ -1,0 +1,360 @@
+import {
+  Product,
+  DepartmentTile,
+  Collection,
+  LookbookLook,
+  CategoryTile,
+  Review,
+  PressMention,
+} from "@/types";
+
+// NOTE: Images use seeded picsum.photos placeholders so every link resolves
+// out of the box. Swap `image` values for real campaign photography before
+// launch — see README "Replacing imagery".
+const img = (seed: string, w = 900, h = 1125) =>
+  `https://picsum.photos/seed/${seed}/${w}/${h}`;
+
+export const departmentTiles: DepartmentTile[] = [
+  {
+    department: "Women",
+    tagline: "Tailoring, softened",
+    image: img("zuri-women-dept", 900, 1100),
+    href: "/women",
+    subcategories: [
+      { name: "Casualwear", href: "/women/casualwear" },
+      { name: "Formalwear", href: "/women/formalwear" },
+      { name: "Outerwear", href: "/women/outerwear" },
+      { name: "Accessories", href: "/women/accessories" },
+    ],
+  },
+  {
+    department: "Men",
+    tagline: "Sharp lines, easy wear",
+    image: img("zuri-men-dept", 900, 1100),
+    href: "/men",
+    subcategories: [
+      { name: "Streetwear", href: "/men/streetwear" },
+      { name: "Suits & Tailoring", href: "/men/suits-tailoring" },
+      { name: "Casualwear", href: "/men/casualwear" },
+      { name: "Accessories", href: "/men/accessories" },
+    ],
+  },
+  {
+    department: "Kids",
+    tagline: "Play-proof, polished",
+    image: img("zuri-kids-dept", 900, 1100),
+    href: "/kids",
+    subcategories: [
+      { name: "Everyday", href: "/kids/everyday" },
+      { name: "Occasionwear", href: "/kids/occasionwear" },
+      { name: "Outerwear", href: "/kids/outerwear" },
+      { name: "Accessories", href: "/kids/accessories" },
+    ],
+  },
+];
+
+export const newArrivals: Product[] = [
+  {
+    id: "na-1",
+    name: "Draped Silk Wrap Dress",
+    department: "Women",
+    category: "Formalwear",
+    price: 218,
+    currency: "USD",
+    colors: ["#B76E79", "#2B2422", "#EDE3DF"],
+    sizes: ["XS", "S", "M", "L"],
+    image: img("zuri-na-1", 700, 900),
+    imageAlt: "Draped silk wrap dress in rose blush",
+    isNew: true,
+  },
+  {
+    id: "na-2",
+    name: "Merino Crewneck Sweater",
+    department: "Men",
+    category: "Casualwear",
+    price: 128,
+    currency: "USD",
+    colors: ["#2B2422", "#7A6E6A", "#EDE3DF"],
+    sizes: ["S", "M", "L", "XL"],
+    image: img("zuri-na-2", 700, 900),
+    imageAlt: "Charcoal merino wool crewneck sweater",
+    isNew: true,
+  },
+  {
+    id: "na-3",
+    name: "Corduroy Overshirt",
+    department: "Kids",
+    category: "Outerwear",
+    price: 74,
+    currency: "USD",
+    colors: ["#C08790", "#2B2422"],
+    sizes: ["4Y", "6Y", "8Y", "10Y"],
+    image: img("zuri-na-3", 700, 900),
+    imageAlt: "Corduroy overshirt for kids in rust",
+    isNew: true,
+  },
+  {
+    id: "na-4",
+    name: "Tailored Wool Trouser",
+    department: "Women",
+    category: "Formalwear",
+    price: 164,
+    currency: "USD",
+    colors: ["#2B2422", "#7A6E6A"],
+    sizes: ["24", "26", "28", "30"],
+    image: img("zuri-na-4", 700, 900),
+    imageAlt: "Tailored wool trouser in charcoal",
+    isNew: true,
+  },
+  {
+    id: "na-5",
+    name: "Oversized Bomber Jacket",
+    department: "Men",
+    category: "Streetwear",
+    price: 196,
+    currency: "USD",
+    colors: ["#9C5B65", "#2B2422"],
+    sizes: ["S", "M", "L", "XL"],
+    image: img("zuri-na-5", 700, 900),
+    imageAlt: "Oversized bomber jacket in deep rose",
+    isNew: true,
+  },
+  {
+    id: "na-6",
+    name: "Pleated Party Dress",
+    department: "Kids",
+    category: "Occasionwear",
+    price: 58,
+    currency: "USD",
+    colors: ["#E8C4C4", "#B76E79"],
+    sizes: ["2Y", "4Y", "6Y", "8Y"],
+    image: img("zuri-na-6", 700, 900),
+    imageAlt: "Pleated party dress for kids in blush",
+    isNew: true,
+  },
+];
+
+export const featuredCollections: Collection[] = [
+  {
+    id: "col-1",
+    title: "The Autumn Edit",
+    description: "Warm neutrals and rose-toned layers for the season ahead.",
+    image: img("zuri-col-1", 1000, 750),
+    href: "/collections/autumn-edit",
+    tag: "Seasonal",
+  },
+  {
+    id: "col-2",
+    title: "City Streetwear",
+    description: "Off-duty silhouettes built for movement and attitude.",
+    image: img("zuri-col-2", 1000, 750),
+    href: "/collections/city-streetwear",
+    tag: "Streetwear",
+  },
+  {
+    id: "col-3",
+    title: "Occasion Edit",
+    description: "Evening-ready pieces with tailored, considered detail.",
+    image: img("zuri-col-3", 1000, 750),
+    href: "/collections/occasion-edit",
+    tag: "Occasionwear",
+  },
+  {
+    id: "col-4",
+    title: "The Tailoring Room",
+    description: "Suiting and structured pieces, cut close and finished by hand.",
+    image: img("zuri-col-4", 1000, 750),
+    href: "/collections/tailoring-room",
+    tag: "Suiting",
+  },
+  {
+    id: "col-5",
+    title: "Family Weekend",
+    description: "Coordinated, comfortable pieces for women, men, and kids.",
+    image: img("zuri-col-5", 1000, 750),
+    href: "/collections/family-weekend",
+    tag: "Family",
+  },
+];
+
+export const categoryTiles: CategoryTile[] = [
+  { name: "Clothing", image: img("zuri-cat-clothing", 500, 620), href: "/category/clothing" },
+  { name: "Shoes", image: img("zuri-cat-shoes", 500, 620), href: "/category/shoes" },
+  { name: "Bags", image: img("zuri-cat-bags", 500, 620), href: "/category/bags" },
+  { name: "Accessories", image: img("zuri-cat-accessories", 500, 620), href: "/category/accessories" },
+  { name: "Outerwear", image: img("zuri-cat-outerwear", 500, 620), href: "/category/outerwear" },
+  { name: "Tailoring", image: img("zuri-cat-tailoring", 500, 620), href: "/category/tailoring" },
+  { name: "Kidswear", image: img("zuri-cat-kidswear", 500, 620), href: "/category/kidswear" },
+];
+
+export const productGrid: Product[] = [
+  {
+    id: "pg-1",
+    name: "Rose Satin Slip Dress",
+    department: "Women",
+    category: "Formalwear",
+    price: 172,
+    compareAtPrice: 210,
+    currency: "USD",
+    colors: ["#B76E79", "#2B2422"],
+    sizes: ["XS", "S", "M", "L"],
+    image: img("zuri-pg-1", 700, 900),
+    imageAlt: "Rose satin slip dress",
+  },
+  {
+    id: "pg-2",
+    name: "Two-Button Wool Blazer",
+    department: "Men",
+    category: "Suits & Tailoring",
+    price: 248,
+    currency: "USD",
+    colors: ["#2B2422", "#7A6E6A"],
+    sizes: ["38R", "40R", "42R", "44R"],
+    image: img("zuri-pg-2", 700, 900),
+    imageAlt: "Two-button wool blazer",
+  },
+  {
+    id: "pg-3",
+    name: "Ribbed Knit Cardigan",
+    department: "Kids",
+    category: "Casualwear",
+    price: 46,
+    currency: "USD",
+    colors: ["#E8C4C4", "#EDE3DF"],
+    sizes: ["2Y", "4Y", "6Y"],
+    image: img("zuri-pg-3", 700, 900),
+    imageAlt: "Ribbed knit cardigan for kids",
+  },
+  {
+    id: "pg-4",
+    name: "Leather Ankle Boot",
+    department: "Women",
+    category: "Accessories",
+    price: 189,
+    currency: "USD",
+    colors: ["#4A2B31", "#2B2422"],
+    sizes: ["6", "7", "8", "9"],
+    image: img("zuri-pg-4", 700, 900),
+    imageAlt: "Leather ankle boot in deep rose brown",
+  },
+  {
+    id: "pg-5",
+    name: "Relaxed Denim Jacket",
+    department: "Men",
+    category: "Streetwear",
+    price: 138,
+    currency: "USD",
+    colors: ["#7A6E6A", "#2B2422"],
+    sizes: ["S", "M", "L", "XL"],
+    image: img("zuri-pg-5", 700, 900),
+    imageAlt: "Relaxed denim jacket",
+  },
+  {
+    id: "pg-6",
+    name: "Pleated Midi Skirt",
+    department: "Women",
+    category: "Casualwear",
+    price: 96,
+    currency: "USD",
+    colors: ["#C08790", "#2B2422", "#EDE3DF"],
+    sizes: ["XS", "S", "M", "L"],
+    image: img("zuri-pg-6", 700, 900),
+    imageAlt: "Pleated midi skirt",
+  },
+  {
+    id: "pg-7",
+    name: "Cotton Poplin Shirt",
+    department: "Men",
+    category: "Formalwear",
+    price: 88,
+    currency: "USD",
+    colors: ["#FAF6F3", "#2B2422"],
+    sizes: ["S", "M", "L", "XL"],
+    image: img("zuri-pg-7", 700, 900),
+    imageAlt: "Cotton poplin shirt",
+  },
+  {
+    id: "pg-8",
+    name: "Quilted Puffer Vest",
+    department: "Kids",
+    category: "Outerwear",
+    price: 64,
+    currency: "USD",
+    colors: ["#B76E79", "#7A6E6A"],
+    sizes: ["4Y", "6Y", "8Y", "10Y"],
+    image: img("zuri-pg-8", 700, 900),
+    imageAlt: "Quilted puffer vest for kids",
+  },
+];
+
+export const lookbookLooks: LookbookLook[] = [
+  {
+    id: "look-1",
+    title: "Sunday Market",
+    image: img("zuri-look-1", 1000, 1250),
+    products: [
+      { name: "Draped Silk Wrap Dress", price: 218 },
+      { name: "Leather Ankle Boot", price: 189 },
+    ],
+  },
+  {
+    id: "look-2",
+    title: "Studio to Street",
+    image: img("zuri-look-2", 1000, 1250),
+    products: [
+      { name: "Oversized Bomber Jacket", price: 196 },
+      { name: "Relaxed Denim Jacket", price: 138 },
+    ],
+  },
+  {
+    id: "look-3",
+    title: "First Recital",
+    image: img("zuri-look-3", 1000, 1250),
+    products: [
+      { name: "Pleated Party Dress", price: 58 },
+      { name: "Corduroy Overshirt", price: 74 },
+    ],
+  },
+  {
+    id: "look-4",
+    title: "Evening Table",
+    image: img("zuri-look-4", 1000, 1250),
+    products: [
+      { name: "Rose Satin Slip Dress", price: 172 },
+      { name: "Two-Button Wool Blazer", price: 248 },
+    ],
+  },
+];
+
+export const reviews: Review[] = [
+  {
+    id: "rev-1",
+    name: "Amara O.",
+    location: "Lagos, NG",
+    quote:
+      "The tailoring on the wool trouser is the best I've found online — it actually fits like it was cut for me.",
+    rating: 5,
+  },
+  {
+    id: "rev-2",
+    name: "Daniel K.",
+    location: "Nairobi, KE",
+    quote:
+      "Fast shipping and the blazer looks even better in person. Zuri is my first stop for occasion wear now.",
+    rating: 5,
+  },
+  {
+    id: "rev-3",
+    name: "Priya R.",
+    location: "London, UK",
+    quote:
+      "Ordered the kids' party dress for a wedding — held up through an entire day of dancing.",
+    rating: 4,
+  },
+];
+
+export const pressMentions: PressMention[] = [
+  { outlet: "Vogue Business", quote: "A boutique redefining considered, family-wide style." },
+  { outlet: "Elle", quote: "Zuri's tailoring room is quietly one of the best on the market." },
+  { outlet: "Harper's Bazaar", quote: "Rose gold has never looked this wearable." },
+];
