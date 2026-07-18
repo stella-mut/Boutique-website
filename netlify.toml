@@ -1,9 +1,0 @@
-[build]
-  command = "npm run build"
-  publish = ".next"
-
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
-
-# Netlify's Next.js Runtime (installed automatically via the plugin above)
-# handles SSR/ISR routing for the App Router — no redirects needed here.
